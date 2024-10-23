@@ -21,14 +21,15 @@ A minimal Chrome extension that adds a clean sidebar for taking notes while brow
 
 Pin the extension > right click icon > Open side panel
 
-Keyboard Shortcut support is Work In Progress.
-
 ---
 
 ## upcoming features
 
-    1. let the user edit a on-disk file
-    2. minimal markdown suport
+    1. Keyboard shortcut to open the sidepanel
+    2. Publish on Chrome Extension Store
+    3. let the user edit a on-disk file
+    4. minimal markdown support
+
 ---
 
 Made with ❤️ by shreyasbg
