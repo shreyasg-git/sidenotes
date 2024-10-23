@@ -9,20 +9,26 @@
       rel="stylesheet"
     />
     <style>
+      html,
       body {
-        margin: 0;
-        height: 100vh;
+        height: 100%;
+        overflow: hidden;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+
+        margin: 0px;
         padding: 4px;
         font-family: Arial, sans-serif;
         background-color: #09090b;
-        display: flex;
-        flex-direction: column;
         color: #fafafa;
       }
       #notepad {
         flex: 1;
+        min-height: 0; /* Prevents overflow issues */
+
         width: 100%;
-        /* height: 90vh; */
         padding: 8px;
         border: 1px solid #262626;
         border-radius: 4px;
@@ -61,6 +67,7 @@
         border: 1px solid #262626;
         cursor: pointer;
         color: #fafafa;
+        margin: 5px;
       }
       #clearbtn {
         background-color: #450a0a;
@@ -103,9 +110,10 @@
         justify-content: space-between;
       "
     >
-      <div>
+      <div style="display: flex; align-items: center">
         <button type="button" id="scrollbtn"></button>
         <button type="button" class="btn" id="copybtn">Copy All</button>
+        <button type="button" class="btn" id="urlbtn">Inject URL</button>
         <button type="button" class="btn" id="clearbtn">Clear All</button>
       </div>
       <div style="display: flex; align-items: center">

@@ -3,8 +3,40 @@ const notepad = document.getElementById("notepad");
 const scrollbtn = document.getElementById("scrollbtn");
 const copybtn = document.getElementById("copybtn");
 const clearbtn = document.getElementById("clearbtn");
+const urlbtn = document.getElementById("urlbtn");
 
 scrollbtn.innerText = "v";
+
+async function getCurrentTabUrl() {
+  try {
+    // Query for the active tab in the current window
+    const [tab] = await chrome.tabs.query({
+      active: true,
+      lastFocusedWindow: true,
+    });
+
+    return tab?.url || "";
+  } catch (error) {
+    console.error("Error getting current tab:", error);
+    return "";
+  }
+}
+
+urlbtn.addEventListener("click", async () => {
+  const cursorposition = notepad.selectionStart;
+
+  const url = await getCurrentTabUrl();
+
+  const text = " " + url + " ";
+
+  const before = notepad.value.substring(0, cursorposition);
+  const after = notepad.value.substring(cursorposition, notepad.value.length);
+
+  notepad.value = before + text + after;
+
+  notepad.focus();
+  notepad.selectionStart = notepad.selectionEnd = cursorposition + text.length;
+});
 
 copybtn.addEventListener("click", () => {
   navigator.clipboard.writeText(notepad.value);

@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Simple Notes Sidepanel",
+  "name": "Sidenotes",
   "version": "1.0",
   "description": "A simple text editor in the Chrome side panel",
-  "permissions": ["sidePanel", "storage"],
+  "permissions": ["sidePanel", "storage", "tabs"],
   "background": {
     "service_worker": "background.js"
   },
