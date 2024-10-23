@@ -23,12 +23,13 @@ Pin the extension > right click icon > Open side panel
 
 ---
 
-## upcoming features
+## features in planning - PRs are welcomed!!
 
-    1. Keyboard shortcut to open the sidepanel
-    2. Publish on Chrome Extension Store
-    3. let the user edit a on-disk file
-    4. minimal markdown support
+    [ ] Inject selection using right click context menu
+    [ ] Keyboard shortcut to open the sidepanel
+    [ ] Publish on Chrome Extension Store
+    [ ] let the user edit a on-disk file
+    [ ] minimal markdown support
 
 ---
 
