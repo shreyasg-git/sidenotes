@@ -5,8 +5,6 @@ const copybtn = document.getElementById("copybtn");
 const clearbtn = document.getElementById("clearbtn");
 const urlbtn = document.getElementById("urlbtn");
 
-scrollbtn.innerText = "v";
-
 async function getCurrentTabUrl() {
   try {
     // Query for the active tab in the current window
@@ -27,7 +25,7 @@ urlbtn.addEventListener("click", async () => {
 
   const url = await getCurrentTabUrl();
 
-  const text = " " + url + " ";
+  const text = url + " ";
 
   const before = notepad.value.substring(0, cursorposition);
   const after = notepad.value.substring(cursorposition, notepad.value.length);
@@ -51,6 +49,7 @@ clearbtn.addEventListener("click", () => {
   }
 });
 
+scrollbtn.innerText = "v";
 scrollbtn.addEventListener("click", () => {
   console.log("AAA", scrollbtn.innerText);
   if (scrollbtn.innerText === "^") {

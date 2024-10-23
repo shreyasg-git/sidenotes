@@ -3,7 +3,8 @@
   "name": "Sidenotes",
   "version": "1.0",
   "description": "A simple text editor in the Chrome side panel",
-  "permissions": ["sidePanel", "storage", "tabs"],
+  "permissions": ["sidePanel", "storage", "tabs", "contextMenus", "activeTab"],
+  
   "background": {
     "service_worker": "background.js"
   },
