@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Notes</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 16px;
+        font-family: Arial, sans-serif;
+        background-color: #09090b;
+      }
+      #notepad {
+        width: 100%;
+        height: 90vh;
+        padding: 8px;
+        border: 1px solid #262626;
+        border-radius: 4px;
+        resize: none;
+        font-family: inherit;
+        box-sizing: border-box;
+        background-color: #12121b;
+        color: #fafafa;
+        font-size: 16px;
+      }
+      #notepad:focus {
+        /* border: 1px solid #737373; */
+        outline: 1px solid #262626;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea
+      spellcheck="false"
+      id="notepad"
+      placeholder="Start typing your notes here..."
+    ></textarea>
+    <script src="sidepanel.js"></script>
+  </body>
+</html>

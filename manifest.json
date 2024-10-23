@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Simple Notes Sidepanel",
+  "version": "1.0",
+  "description": "A simple text editor in the Chrome side panel",
+  "permissions": ["sidePanel", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open Notes"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  }
+}
