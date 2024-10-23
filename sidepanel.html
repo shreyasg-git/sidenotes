@@ -2,29 +2,89 @@
 <html>
   <head>
     <title>Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       body {
         margin: 0;
-        padding: 16px;
+        height: 100vh;
+        padding: 4px;
         font-family: Arial, sans-serif;
         background-color: #09090b;
+        display: flex;
+        flex-direction: column;
+        color: #fafafa;
       }
       #notepad {
+        flex: 1;
         width: 100%;
-        height: 90vh;
+        /* height: 90vh; */
         padding: 8px;
         border: 1px solid #262626;
         border-radius: 4px;
         resize: none;
-        font-family: inherit;
+        /* font-family: Arial, Helvetica, sans-serif; */
         box-sizing: border-box;
         background-color: #12121b;
         color: #fafafa;
-        font-size: 16px;
+        font-size: 18px;
+        line-height: 20px;
+
+        font-family: "Kalam", cursive;
+        font-weight: 400;
+        font-style: normal;
       }
       #notepad:focus {
         /* border: 1px solid #737373; */
         outline: 1px solid #262626;
+      }
+      #scrollbtn {
+        background-color: #12121b;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        outline: none;
+        border: 1px solid #262626;
+        cursor: pointer;
+        color: #fafafa;
+      }
+      .btn {
+        background-color: #12121b;
+        width: 80px;
+        height: 40px;
+        border-radius: 10px;
+        outline: none;
+        border: 1px solid #262626;
+        cursor: pointer;
+        color: #fafafa;
+      }
+      #clearbtn {
+        background-color: #450a0a;
+      }
+
+      ::-webkit-scrollbar {
+        width: 20px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: #262626;
+        border-radius: 20px;
+        border: 6px solid transparent;
+        background-clip: content-box;
+        cursor: grab;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        cursor: grab;
+        background-color: #1c1917;
       }
     </style>
   </head>
@@ -33,7 +93,27 @@
       spellcheck="false"
       id="notepad"
       placeholder="Start typing your notes here..."
-    ></textarea>
+    >
+    </textarea>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        margin: 10px;
+        justify-content: space-between;
+      "
+    >
+      <div>
+        <button type="button" id="scrollbtn"></button>
+        <button type="button" class="btn" id="copybtn">Copy All</button>
+        <button type="button" class="btn" id="clearbtn">Clear All</button>
+      </div>
+      <div style="display: flex; align-items: center">
+        <a href="https://github.com/shreyasg-git/sidenotes" target="_blank"
+          >GitHub</a
+        >
+      </div>
+    </div>
     <script src="sidepanel.js"></script>
   </body>
 </html>
