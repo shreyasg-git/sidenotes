@@ -5,6 +5,25 @@ const copybtn = document.getElementById("copybtn");
 const clearbtn = document.getElementById("clearbtn");
 const urlbtn = document.getElementById("urlbtn");
 
+const decbtn = document.getElementById("decbtn");
+const fontsizecount = document.getElementById("count");
+const incbtn = document.getElementById("incbtn");
+
+fontsizecount.innerText = "18";
+notepad.style.fontSize = "18px";
+
+decbtn.addEventListener("click", () => {
+  const next = Number(notepad.style.fontSize.slice(0, 2)) - 2;
+  notepad.style.fontSize = `${next}px`;
+  fontsizecount.innerText = `${next}`;
+});
+
+incbtn.addEventListener("click", () => {
+  const next = Number(notepad.style.fontSize.slice(0, 2)) + 2;
+  notepad.style.fontSize = `${next}px`;
+  fontsizecount.innerText = `${next}`;
+});
+
 async function getCurrentTabUrl() {
   try {
     // Query for the active tab in the current window

@@ -72,7 +72,34 @@
       #clearbtn {
         background-color: #450a0a;
       }
+      .counter {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        background-color: #262626;
 
+        border-radius: 20px;
+        color: #fafafa;
+      }
+
+      .counter-btn {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #262626;
+        border-radius: 50%;
+        background: #12121b;
+        cursor: pointer;
+        font-size: 18px;
+        color: #fafafa;
+      }
+
+      .counter-value {
+        min-width: 40px;
+        text-align: center;
+        font-size: 18px;
+      }
+
+      /* SCROLLBAR================= */
       ::-webkit-scrollbar {
         width: 20px;
       }
@@ -115,6 +142,11 @@
         <button type="button" class="btn" id="copybtn">Copy All</button>
         <button type="button" class="btn" id="urlbtn">Inject URL</button>
         <button type="button" class="btn" id="clearbtn">Clear All</button>
+      </div>
+      <div class="counter">
+        <button id="decbtn" class="counter-btn">-</button>
+        <span id="count" class="counter-value">0</span>
+        <button id="incbtn" class="counter-btn">+</button>
       </div>
       <div style="display: flex; align-items: center">
         <a href="https://github.com/shreyasg-git/sidenotes" target="_blank"
