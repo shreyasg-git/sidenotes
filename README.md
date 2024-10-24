@@ -5,12 +5,14 @@ A minimal Chrome extension that adds a clean sidebar for taking notes while brow
 ## Features
 
 - 📝 Simple note-taking sidebar
-- ⬆️ Quick scroll to top
-- ⬇️ Quick scroll to bottom  
-- 📋 Copy all text
-- 🗑️ Clear all text
-- 📥 Right Click to add selected text to Sidenotes
+- ⬆️ Quick scroll to top / bottom
+- 📋 Copy all text to clipboard
+- 📎 Insert current tab URL at cursor
+- 🗑 Clear all text
+- 📥 Download Note As A File
+- 📤 Load from local File
 - ⌨ `Ctrl+Shift+S` to open Sidenotes
+- 🌟 Right-Click selected text to insert in Sidenote
 
 ## Installation
 
@@ -29,7 +31,7 @@ Pin the extension > right click icon > Open side panel
 
 ---
 
-## Features in planning - PRs are welcomed!!  
+## Features in planning - PRs are welcomed!!!  
 
 - [x] Inject selection using right click context menu  
 - [x] Keyboard shortcut to open the sidepanel  
