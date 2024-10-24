@@ -1,9 +1,45 @@
-// Get the textarea element
 const notepad = document.getElementById("notepad");
 const scrollbtn = document.getElementById("scrollbtn");
 const copybtn = document.getElementById("copybtn");
 const clearbtn = document.getElementById("clearbtn");
 const urlbtn = document.getElementById("urlbtn");
+
+function appendToNotes(text) {
+  console.log("Appending to notes:", text);
+  notepad.value = notepad.value + "\n" + text;
+
+  saveCurrentNotepadToLocal();
+}
+
+let port;
+
+function connectToBackground() {
+  port = chrome.runtime.connect({ name: "sidePanel" });
+
+  // Handle messages received through the port
+  port.onMessage.addListener((message) => {
+    if (message.action === "appendToNotes") {
+      appendToNotes(message.data.str);
+    }
+  });
+
+  // Notify background that side panel is ready
+  port.postMessage({ action: "sidePanelReady" });
+}
+
+// Initialize connection when document is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  connectToBackground();
+});
+
+// Reconnect if connection is lost but panel is still open
+port?.onDisconnect.addListener(() => {
+  setTimeout(() => {
+    if (document.visibilityState === "visible") {
+      connectToBackground();
+    }
+  }, 100);
+});
 
 async function getCurrentTabUrl() {
   try {
@@ -32,6 +68,8 @@ urlbtn.addEventListener("click", async () => {
 
   notepad.value = before + text + after;
 
+  saveCurrentNotepadToLocal();
+
   notepad.focus();
   notepad.selectionStart = notepad.selectionEnd = cursorposition + text.length;
 });
@@ -44,6 +82,7 @@ clearbtn.addEventListener("click", () => {
   navigator.clipboard.writeText(notepad.value);
   if (confirm("Clear All Text?")) {
     notepad.value = "";
+    saveCurrentNotepadToLocal();
   } else {
     return;
   }
@@ -68,16 +107,20 @@ scrollbtn.addEventListener("click", () => {
   }
 });
 
-// Load saved text when the panel opens
 chrome.storage.local.get(["noteText"], function (result) {
   if (result.noteText) {
     notepad.value = result.noteText;
   }
 });
 
-// Save text whenever it changes
 notepad.addEventListener("input", function () {
   chrome.storage.local.set({
     noteText: notepad.value,
   });
 });
+
+const saveCurrentNotepadToLocal = () => {
+  chrome.storage.local.set({
+    noteText: notepad.value,
+  });
+};

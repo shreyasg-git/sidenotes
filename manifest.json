@@ -3,7 +3,15 @@
   "name": "Sidenotes",
   "version": "1.0",
   "description": "A simple text editor in the Chrome side panel",
-  "permissions": ["sidePanel", "storage", "tabs", "contextMenus", "activeTab"],
+  "permissions": ["sidePanel", "storage", "tabs", "contextMenus", "activeTab", "commands"],
+  "commands": {
+    "toggle-sidepanel": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Toggle side panel"
+    }
+  },
   
   "background": {
     "service_worker": "background.js"
