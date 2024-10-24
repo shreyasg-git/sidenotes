@@ -60,7 +60,7 @@
       }
       .btn {
         background-color: #12121b;
-        width: 80px;
+        width: auto;
         height: 40px;
         border-radius: 10px;
         outline: none;
@@ -70,7 +70,9 @@
         margin: 5px;
       }
       #clearbtn {
-        background-color: #450a0a;
+        /* background-color: #450a0a; */
+        color: red;
+        font-size: 16px;
       }
 
       ::-webkit-scrollbar {
@@ -112,9 +114,44 @@
     >
       <div style="display: flex; align-items: center">
         <button type="button" id="scrollbtn"></button>
-        <button type="button" class="btn" id="copybtn">Copy All</button>
-        <button type="button" class="btn" id="urlbtn">Inject URL</button>
-        <button type="button" class="btn" id="clearbtn">Clear All</button>
+        <button
+          title="Copy To Clipboard"
+          type="button"
+          class="btn"
+          id="copybtn"
+        >
+          &#128203;
+        </button>
+        <button
+          type="button"
+          title="Insert Current Tab URL"
+          class="btn"
+          id="urlbtn"
+        >
+          &#128206;
+        </button>
+        <button title="Clear Contents" type="button" class="btn" id="clearbtn">
+          &#128465;
+        </button>
+        <button
+          type="button"
+          title="Download As A File"
+          class="btn"
+          id="downloadbtn"
+        >
+          <!-- &#128427; -->
+          &#128229;
+        </button>
+
+        <button class="btn" title="Load Text From Local File" id="loadbtn">
+          &#128228;
+        </button>
+        <input
+          type="file"
+          id="fileInput"
+          accept=".txt,.md,.mdx"
+          style="display: none"
+        />
       </div>
       <div style="display: flex; align-items: center">
         <a href="https://github.com/shreyasg-git/sidenotes" target="_blank"

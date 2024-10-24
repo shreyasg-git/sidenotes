@@ -4,6 +4,44 @@ const copybtn = document.getElementById("copybtn");
 const clearbtn = document.getElementById("clearbtn");
 const urlbtn = document.getElementById("urlbtn");
 
+const downloadbtn = document.getElementById("downloadbtn");
+const loadbtn = document.getElementById("loadbtn");
+const fileInput = document.getElementById("fileInput");
+
+loadbtn.addEventListener("click", () => {
+  fileInput.click();
+});
+
+fileInput.addEventListener("change", function (e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    notepad.value = e.target.result;
+    saveCurrentNotepadToLocal();
+  };
+  reader.onerror = function (e) {
+    notepad.value = "Error reading file";
+    saveCurrentNotepadToLocal();
+  };
+  reader.readAsText(file);
+});
+
+downloadbtn.addEventListener("click", () => {
+  const content = notepad.value;
+  const link = document.createElement("a");
+
+  const file = new Blob([content], { type: "text/plain" });
+  link.href = URL.createObjectURL(file);
+
+  link.download = content.split("\n")[0];
+
+  // Add click event to <a> tag to save file.
+  link.click();
+  URL.revokeObjectURL(link.href);
+});
+
 function appendToNotes(text) {
   console.log("Appending to notes:", text);
   notepad.value = notepad.value + "\n" + text;
